@@ -1,0 +1,233 @@
+/* General Styling */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Mode Selection Styling */
+  #mode-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  #mode-selection h1 {
+    font-size: 2rem;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+  }
+  
+  #mode-selection button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #0ff;
+    color: #000;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #mode-selection button:hover {
+    background-color: #00bfff;
+    box-shadow: 0 0 15px #00bfff;
+  }
+  
+  /* Game Container */
+  #game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    display: none;
+    padding-top: 58px;
+  }
+
+  #back-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    color: #000;
+    background-color: #0ff;
+    border: 1px solid #00bfff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(0, 191, 255, 0.45);
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+  }
+
+  #back-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.65);
+  }
+
+  /* Game Board Styling */
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px 0;
+  }
+  
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 10px #0ff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cell.x {
+    color: #ff0033; /* Red for X */
+    text-shadow: 0 0 15px #ff0033;
+  }
+  
+  .cell.o {
+    color: #b200ff; /* Purple for O */
+    text-shadow: 0 0 15px #b200ff, 0 0 30px #b200ff; /* Neon Glow */
+  }
+  
+  .cell.win {
+    animation: glowWin 1s infinite alternate;
+  }
+  
+  /* Winning Glow Animation */
+  @keyframes glowWin {
+    from {
+      box-shadow: 0 0 15px #ff0, 0 0 30px #ff0;
+    }
+    to {
+      box-shadow: 0 0 20px #ff0, 0 0 40px #ff0;
+    }
+  }
+  
+  /* Status and Reset Button Styling */
+  #status {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+  }
+  
+  #reset-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #000;
+    background-color: #0ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #0ff;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  #reset-btn:hover,
+  #back-btn:hover,
+  #difficulty-easy:hover,
+  #difficulty-medium:hover,
+  #difficulty-hard:hover,
+  #player-vs-player:hover,
+  #player-vs-ai:hover {
+    background-color: #00bfff;
+    box-shadow: 0 0 15px #00bfff;
+  }
+
+  #back-btn {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: #000;
+    background-color: #0ff;
+    border: 1px solid #00bfff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(0, 191, 255, 0.45);
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+  }
+
+  #back-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.65);
+  }
+
+  #ai-difficulty-selection {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #ai-difficulty-selection button {
+    margin: 0;
+    padding: 10px 18px;
+    font-size: 1rem;
+    border: none;
+    background-color: #0ff;
+    color: #000;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #0ff;
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media screen and (max-width: 600px) {
+    #game-board {
+      grid-template-columns: repeat(3, 60px);
+      grid-template-rows: repeat(3, 60px);
+      gap: 4px;
+      margin: 16px 0;
+    }
+
+    .cell {
+      font-size: 2rem;
+    }
+
+    #mode-selection h1,
+    #game-container h1 {
+      font-size: 1.7rem;
+    }
+
+    #mode-selection button,
+    #ai-difficulty-selection button,
+    #reset-btn,
+    #back-btn {
+      font-size: 0.9rem;
+      padding: 8px 14px;
+    }
+
+    #back-btn {
+      top: 8px;
+      right: 8px;
+      left: auto;
+      transform: none;
+    }
+
+    #game-container {
+      padding-top: 64px;
+    }
+  }
+  
